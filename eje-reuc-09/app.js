@@ -1,11 +1,16 @@
-const express = require("express");
+const express = requiere("express");
 const app = express();
+const port =process.env.port || 3000;
 
-app.get("/", (req,res) => {
-    res.send("Hola Mundo de los Servidores Web");
+//para obtener un recurso del servidor
+app.get("/",(req, res) => {
+    res.send("Hola mundo de los servidores web")
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`El servidor esta corriendo en el puerto http://localhost:${port}`);
+app.get("/productos", (req, res) => {
+    res.send("404 | Pagina no encontrada");
+})
+//proceso
+app.listen(port, () =>{
+    console.log(`El servidor esta corriendo en el puerto http://localhost:3000`)
 });
